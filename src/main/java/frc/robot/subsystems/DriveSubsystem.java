@@ -12,6 +12,7 @@ import com.malfunctionz.malfunctionboard.nt.MalfunctionBoard;
 import com.malfunctionz.malfunctionboard.nt.datatypes.*;
 
 import frc.robot.Constants;
+import frc.robot.Constants.DriveConstants;
 import frc.robot.utilities.Utilities;
 
 public class DriveSubsystem extends SubsystemBase
@@ -23,14 +24,14 @@ public class DriveSubsystem extends SubsystemBase
 
     public DriveSubsystem()
     {
-        frontLeftMotor = new SparkMax(Constants.DriveConstants.kFrontLeftMotorID, MotorType.kBrushless);
-        frontRightMotor = new SparkMax(Constants.DriveConstants.kFrontRightMotorID, MotorType.kBrushless);
+        frontLeftMotor = new SparkMax(DriveConstants.kFrontLeftMotorID, MotorType.kBrushless);
+        frontRightMotor = new SparkMax(DriveConstants.kFrontRightMotorID, MotorType.kBrushless);
         //backRightMotor = new SparkMax(Constants.DriveConstants.kBackRightMotorID, MotorType.kBrushless);
         //backLeftMotor = new SparkMax(Constants.DriveConstants.kBackLeftMotorID, MotorType.kBrushless);
 
-        frontLeftMotor.configure(Constants.DriveConstants.kLeftMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+        frontLeftMotor.configure(DriveConstants.kLeftMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         //backLeftMotor.configure(Constants.DriveConstants.kLeftMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-        frontRightMotor.configure(Constants.DriveConstants.kRightMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+        frontRightMotor.configure(DriveConstants.kRightMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         //backRightMotor.configure(Constants.DriveConstants.kRightMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     }
 
@@ -41,8 +42,8 @@ public class DriveSubsystem extends SubsystemBase
 
     public void drive(double forward, double steer, double braking)
     {
-        forward = MathUtil.applyDeadband(forward, Constants.DriveConstants.kDriveDeadband);
-        steer = MathUtil.applyDeadband(steer, Constants.DriveConstants.kDriveDeadband); 
+        forward = MathUtil.applyDeadband(forward, DriveConstants.kDriveDeadband);
+        steer = MathUtil.applyDeadband(steer, DriveConstants.kDriveDeadband); 
 
         double speed = Math.sqrt(forward * forward + steer * steer);
         if (speed < Constants.kEpsilon)

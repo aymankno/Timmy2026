@@ -9,8 +9,8 @@ public final class Constants
 
     public static final class DriveConstants
     {
-        public static final int kFrontLeftMotorID = 2;
-        public static final int kFrontRightMotorID = 7;
+        public static final int kFrontLeftMotorID = 7;
+        public static final int kFrontRightMotorID = 2;
         public static final int kBackRightMotorID = 3;
         public static final int kBackLeftMotorID = 4;
 
@@ -34,5 +34,23 @@ public final class Constants
             kRightMotorConfig.absoluteEncoder
                 .inverted(false);
         }
+    }
+
+    public static final class GrabberConstants
+    {
+        public static final int kGrabberServoID = 0;
+
+        public static final double kReleaseAngle = 0.0;
+        public static final double kGrabAngle = 1.0;
+        public static final double kGrabberServoSpeed = 1.0;
+    }
+
+    public static final class ArmConstants
+    {
+        public static final int kArmServoID = 1;
+
+        public static final double kArmServoSpeed = 1.0;
+        public static final double kStartAngle = 0.0;
+        public static final double kMaxRaiseAngle = 0.5;
     }
 }

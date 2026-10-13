@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.ArmSubsystem;
+import frc.robot.subsystems.GrabberSubsystem;
 
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
@@ -17,6 +19,8 @@ import frc.robot.subsystems.DriveSubsystem;
 public class Robot extends TimedRobot {
     XboxController controller = new XboxController(0);
     DriveSubsystem driveSubsystem = new DriveSubsystem();
+    ArmSubsystem armSubsystem = new ArmSubsystem();
+    GrabberSubsystem grabberSubsystem = new GrabberSubsystem();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -47,6 +51,16 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic()
   {
     driveSubsystem.drive(controller.getLeftY(), controller.getLeftX(), controller.getLeftTriggerAxis());
+    armSubsystem.setPosition(controller.getRightY());
+
+    if (controller.getRightBumperButtonPressed())
+    {
+        grabberSubsystem.grab();
+    }
+    else if (controller.getRightBumperButtonReleased())
+    {
+        grabberSubsystem.release();
+    }
   }
 
   /** This function is called once when the robot is disabled. */
