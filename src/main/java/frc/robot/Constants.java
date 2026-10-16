@@ -41,7 +41,7 @@ public final class Constants
         public static final int kGrabberServoID = 0;
 
         public static final double kReleaseAngle = 0.0;
-        public static final double kGrabAngle = 1.0;
+        public static final double kGrabAngle = 0.5;
         public static final double kGrabberServoSpeed = 1.0;
     }
 

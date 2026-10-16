@@ -18,8 +18,8 @@ import frc.robot.subsystems.GrabberSubsystem;
  */
 public class Robot extends TimedRobot {
     XboxController controller = new XboxController(0);
-    DriveSubsystem driveSubsystem = new DriveSubsystem();
-    ArmSubsystem armSubsystem = new ArmSubsystem();
+    //DriveSubsystem driveSubsystem = new DriveSubsystem();
+    //ArmSubsystem armSubsystem = new ArmSubsystem();
     GrabberSubsystem grabberSubsystem = new GrabberSubsystem();
 
   /**
@@ -50,8 +50,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic()
   {
-    driveSubsystem.drive(controller.getLeftY(), controller.getLeftX(), controller.getLeftTriggerAxis());
-    armSubsystem.setPosition(controller.getRightY());
+    //driveSubsystem.drive(controller.getLeftY(), controller.getLeftX(), controller.getLeftTriggerAxis());
+    //armSubsystem.setPosition(controller.getRightTriggerAxis());
 
     if (controller.getRightBumperButtonPressed())
     {
