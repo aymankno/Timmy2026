@@ -6,33 +6,19 @@ import frc.robot.Constants.GrabberConstants;
 
 public class GrabberSubsystem
 {
+    boolean closed = false;
     Servo grabberServo;
 
     public GrabberSubsystem()
     {
         grabberServo = new Servo(GrabberConstants.kGrabberServoID);
-        grabberServo.setSpeed(GrabberConstants.kGrabberServoSpeed);
-        //grabberServo.set(GrabberConstants.kReleaseAngle);
+        grabberServo.set(GrabberConstants.kReleaseAngle);
+        
     }
 
-    public void grab()
+    public void toggle()
     {
-        goToAngle(GrabberConstants.kGrabAngle);
-    }
-
-    public void release()
-    {
-        goToAngle(GrabberConstants.kReleaseAngle);
-    }
-
-    void goToAngle(double angle)
-    {
-        grabberServo.setSpeed(selectSpeed(angle));
-        grabberServo.set(angle);
-    }
-
-    double selectSpeed(double targetAngle)
-    {
-        return (targetAngle - grabberServo.get()) < 0.0 ? -GrabberConstants.kGrabberServoSpeed : GrabberConstants.kGrabberServoSpeed;
+        grabberServo.set(closed ? GrabberConstants.kReleaseAngle : GrabberConstants.kGrabAngle);
+        closed = !closed;
     }
 }

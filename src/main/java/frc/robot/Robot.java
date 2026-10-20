@@ -55,11 +55,7 @@ public class Robot extends TimedRobot {
 
     if (controller.getRightBumperButtonPressed())
     {
-        grabberSubsystem.grab();
-    }
-    else if (controller.getRightBumperButtonReleased())
-    {
-        grabberSubsystem.release();
+        grabberSubsystem.toggle();
     }
   }
 
