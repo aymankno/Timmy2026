@@ -11,8 +11,6 @@ public final class Constants
     {
         public static final int kFrontLeftMotorID = 7;
         public static final int kFrontRightMotorID = 2;
-        public static final int kBackRightMotorID = 3;
-        public static final int kBackLeftMotorID = 4;
 
         public static final double kDriveSpeed = 1.0;
         public static final double kDriveDeadband = 0.10;
@@ -46,9 +44,21 @@ public final class Constants
 
     public static final class ArmConstants
     {
-        public static final int kArmServoID = 1;
+        public static final int kArmMotorID = 1;
 
-        public static final double kStartAngle = 0.0;
-        public static final double kMaxRaiseAngle = 0.5;
+        public static final double kMinAngle = 0.0;
+        public static final double kMaxAngle = Math.PI / 2.0;
+
+        public static final double kArmSpeed = 0.5;
+        public static final double kDecayStartAngle = Math.PI / 4.0;
+
+        public static final SparkMaxConfig kArmMotorConfig = new SparkMaxConfig();
+
+        static
+        {
+            kArmMotorConfig.smartCurrentLimit(50);
+            kArmMotorConfig.inverted(false);
+            kArmMotorConfig.idleMode(IdleMode.kBrake);
+        }
     }
 }

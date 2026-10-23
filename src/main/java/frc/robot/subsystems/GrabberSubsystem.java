@@ -2,9 +2,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Servo;
 
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import frc.robot.Constants.GrabberConstants;
 
-public class GrabberSubsystem
+public class GrabberSubsystem extends SubsystemBase
 {
     boolean closed = false;
     Servo grabberServo;
